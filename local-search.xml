@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>树链剖分</title>
+    <link href="/2024/04/13/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
+    <url>/2024/04/13/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>知识点</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2024.3.23测试</title>
     <link href="/2024/03/29/2024.3.23%E6%B5%8B%E8%AF%95/"/>
     <url>/2024/03/29/2024.3.23%E6%B5%8B%E8%AF%95/</url>
@@ -71,25 +90,6 @@
     <categories>
       
       <category>考试总结</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>有道词典笔添加视频</title>
-    <link href="/2024/03/01/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/"/>
-    <url>/2024/03/01/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/</url>
-    
-    <content type="html"><![CDATA[<p><strong>适用于有道词典笔 YDP031 2.7.3版本</strong></p><p>准备软件：</p><ul><li><a href="https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn">adb驱动</a></li><li><a href="https://sqlitestudio.pl/">SQLiteStudio</a></li></ul><p>添加 adb 所在路径为 Path 环境变量</p><p>插入词典笔</p><p>打开 cmd</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">adb <span class="hljs-keyword">shell</span> auth<br>CherryYoudao<br><span class="hljs-keyword">cd</span> 任意可操作路径<br>adb pull /userdisk/math/exerciseFav/exerciseFavorite.<span class="hljs-keyword">db</span> exerciseFavorite.<span class="hljs-keyword">db</span><br></code></pre></td></tr></table></figure><p>将所得 db 文件用 SQLiteStudio 打开。</p><p>第三行 table_mathexercise_urs…… 点开，点数据，新建行。</p><p>依次填写：</p><ul><li>视频名称（尽量用英文或数字）</li><li>2</li><li>随便</li><li>1</li><li>随便</li><li>不填</li><li>不填</li><li>0</li><li>不填</li><li>0</li><li>不填</li><li>不填</li><li>不填</li><li>{“knowId”:1164,“knowName”:“Test123”,“knowVideo”:“file:///userdisk/Music/video/XXX.mp4”}</li><li>不填</li><li>不填</li><li>与其他项非重复数字（用于下一步第一个空）</li><li>[]</li><li>[]</li><li>dictpen</li><li>0</li><li>1</li><li>1</li><li>大于上一项的数字，相同位数。</li></ul><p>第一行 table_konwledge 点开数据，新建行。</p><ul><li>与其他项非重复数字</li><li>视频名称（英文或数字）</li><li>file:///userdisk/Music/video/xxx.mp4</li><li>[<br>{<br>“knowId”: 3745,<br>“knowName”: “反比例的意义”,<br>“knowVideo”: “file:///userdisk/Music/video/xxx.mp4”<br>}<br>]</li><li>[]</li><li>[]</li><li>1</li><li>1697942550001</li></ul><p>提交：</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">adb <span class="hljs-keyword">push</span> exerciseFavorite<span class="hljs-meta">.db</span> /userdisk/math/exerciseFav/exerciseFavorite<span class="hljs-meta">.db</span><br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>技术</category>
       
     </categories>
     
@@ -496,7 +496,7 @@
     <link href="/2023/11/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <url>/2023/11/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<h1>博客建立</h1><p>安装node-js: <a href="https://nodejs.cn/download/">Node-js</a></p><p>Git-bash: <a href="https://git-scm.com/downloads">Git-bash</a></p><p>用管理员模式启动cmd:</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-params">---</span> <span class="hljs-string">//</span>安装Nodejs<br>node -v <span class="hljs-string">//</span>查看node版本<br>npm -v  <span class="hljs-string">//</span>查看npm版本<br>npm install -g cnpm <span class="hljs-params">--registry=http</span>:<span class="hljs-string">//registry.npm.taobao.org</span><br>cnpm -v <span class="hljs-string">//</span>查看cnpm版本<br>cnpm install -g hexo-cli <span class="hljs-string">//</span>安装hexo框架<br>hexo -v <span class="hljs-string">//</span>查看hexo版本<br></code></pre></td></tr></table></figure><p>用Git-bash进入博客文件夹:</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;sunrain978330@outlook.com&quot;</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;cyberse999&quot;</span><br>git config <span class="hljs-attr">--global</span> http<span class="hljs-selector-class">.sslVerify</span> false <span class="hljs-comment">//修改网页设置</span><br>git config <span class="hljs-attr">--global</span> core<span class="hljs-selector-class">.autocrlf</span> false <br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> http<span class="hljs-selector-class">.proxy</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> https<span class="hljs-selector-class">.proxy</span><br>把deploy删掉<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1>博客建立</h1><p>安装node-js: <a href="https://nodejs.cn/download/">Node-js</a></p><p>Git-bash: <a href="https://git-scm.com/downloads">Git-bash</a></p><p>用管理员模式启动cmd:</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-params">---</span> <span class="hljs-string">//</span>安装Nodejs<br>npm install -g cnpm <span class="hljs-params">--registry=http</span>:<span class="hljs-string">//registry.npm.taobao.org</span><br>cnpm install -g hexo-cli<br></code></pre></td></tr></table></figure><p>用Git-bash进入博客文件夹:</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;sunrain978330@outlook.com&quot;</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;cyberse999&quot;</span><br>把deploy删掉<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
